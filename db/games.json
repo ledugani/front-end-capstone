@@ -1,8 +1,7 @@
 {
   "games": {
     "game0": {
-      "title": "Kingdom Hearts",
-      "platform": "PlayStation 2",
+      "title": "Kingdom Hearts 3",
       "developer": "Square Enix",
       "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
       "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
@@ -10,7 +9,6 @@
     },
     "game1": {
       "title": "Fortnite",
-      "platform": "PlayStation 4",
       "developer": "Epic Games",
       "description": "Fortnite: Save the World is a co-op sandbox survival game developed by Epic Games and People Can Fly and published by Epic Games. The game was released as a paid-for early access title for Microsoft Windows, macOS, PlayStation 4 and Xbox One on July 25, 2017, with a full free-to-play release expected in 2018. The retail versions of the game were published by Gearbox Publishing, while online distribution of the PC versions is handled by Epic's launcher.",
       "poster_path": "https://upload.wikimedia.org/wikipedia/en/d/dd/Fortnite_cover_art%28PC%29.jpg",
@@ -18,25 +16,22 @@
     },
     "game2": {
       "title": "Overwatch",
-      "platform": "PlayStation 4",
       "developer": "Blizzard Entertainment",
-      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "description": "Described as a 'hero shooter', Overwatch assigns players into two teams of six, with each player selecting from a roster of over 20 characters, known as 'heroes', each with a unique style of play whose roles are divided into three general categories that fit their role. Players on a team work together to secure and defend control points on a map or escort a payload across the map in a limited amount of time. Players gain cosmetic rewards that do not affect gameplay, such as character skins and victory poses, as they play the game. The game was initially launched with casual play, with a competitive ranked mode, various 'arcade' game modes, and a player-customizable server browser subsequently included following its release.",
       "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
       "initial release": "March 28, 2002"
     },
     "game3": {
       "title": "Grand Theft Auto V",
-      "platform": "PlayStation 2",
       "developer": "Rockstar Games",
-      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "description": "Set within the fictional state of San Andreas, based on Southern California, the single-player story follows three criminals and their efforts to commit heists while under pressure from a government agency. The open world design lets players freely roam San Andreas' open countryside and the fictional city of Los Santos, based on Los Angeles.",
       "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
       "initial release": "March 28, 2002"
     },
     "game4": {
       "title": "God of War",
-      "platform": "PlayStation 4",
-      "developer": "",
-      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "developer": "SIE Santa Monica Studio, LLC",
+      "description": "The main protagonists are Kratos, the former Greek God of War, and his young son Atreus. Following the death of Kratos' second wife and Atreus' mother, they journey to fulfill her promise and spread her ashes at the highest peak of the nine realms. Kratos keeps his troubled past a secret from Atreus, who is unaware of his divine nature. Along their journey, they encounter monsters and gods of the Norse world.",
       "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
       "initial release": "March 28, 2002"
     }
