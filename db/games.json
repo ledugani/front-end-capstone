@@ -1,0 +1,44 @@
+{
+  "games": {
+    "game0": {
+      "title": "Kingdom Hearts",
+      "platform": "PlayStation 2",
+      "developer": "Square Enix",
+      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
+      "initial release": "March 28, 2002"
+    },
+    "game1": {
+      "title": "Fortnite",
+      "platform": "PlayStation 4",
+      "developer": "Epic Games",
+      "description": "Fortnite: Save the World is a co-op sandbox survival game developed by Epic Games and People Can Fly and published by Epic Games. The game was released as a paid-for early access title for Microsoft Windows, macOS, PlayStation 4 and Xbox One on July 25, 2017, with a full free-to-play release expected in 2018. The retail versions of the game were published by Gearbox Publishing, while online distribution of the PC versions is handled by Epic's launcher.",
+      "poster_path": "https://upload.wikimedia.org/wikipedia/en/d/dd/Fortnite_cover_art%28PC%29.jpg",
+      "initial release": "July 25, 2017"
+    },
+    "game2": {
+      "title": "Overwatch",
+      "platform": "PlayStation 4",
+      "developer": "Blizzard Entertainment",
+      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
+      "initial release": "March 28, 2002"
+    },
+    "game3": {
+      "title": "Grand Theft Auto V",
+      "platform": "PlayStation 2",
+      "developer": "Rockstar Games",
+      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
+      "initial release": "March 28, 2002"
+    },
+    "game4": {
+      "title": "God of War",
+      "platform": "PlayStation 4",
+      "developer": "",
+      "description": "The series starts with Kingdom Hearts, where a 14-year-old boy named Sora is separated from his friends Riku and Kairi when their world, Destiny Islands, is invaded by creatures known as the Heartless. During the invasion, Sora obtains a weapon called the Keyblade that allows him to fight the Heartless.",
+      "poster_path": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Kingdom_Hearts.jpg/220px-Kingdom_Hearts.jpg",
+      "initial release": "March 28, 2002"
+    }
+  }
+}
