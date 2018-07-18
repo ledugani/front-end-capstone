@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar/Navbar';
 // import Login from '../components/Login/Login';
 // import MyCollection from '../components/MyCollection/MyCollection';
 // import NewGame from '../components/NewGame/NewGame';
-// import Registration from '../components/Registration/Registration';
+import Registration from '../components/Registration/Registration';
 import Search from '../components/Search/Search';
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
@@ -21,6 +21,23 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => {
         ) : (
           <Redirect
             to={{ pathname: '/login', state: {from: props.location}}}
+          />
+        )
+      }
+    />
+  );
+};
+
+const PublicRoute = ({ component: Component, authed, ...rest}) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        authed === false ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{ pathname: '/mycollection', state: {from: props.location}}}
           />
         )
       }
@@ -46,6 +63,11 @@ class App extends Component {
                     path="/search"
                     authed={this.state.authed}
                     component={Search}
+                  />
+                  <PublicRoute
+                    path="/registration"
+                    authed={this.state.authed}
+                    component={Registration}
                   />
                 </Switch>
               </div>
