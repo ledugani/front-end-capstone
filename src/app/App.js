@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import {Route, BrowserRouter, Redirect, Switch} from 'react-router-dom';
+
+import Home from '../components/Home/Home';
+import Login from '../components/Login/Login';
+import MyCollection from '../components/MyCollection/MyCollection';
+import Navbar from '../components/Navbar/Navbar';
+import NewGame from '../components/NewGame/NewGame';
+import Registration from '../components/Registration/Registration';
+import Search from '../components/Search/Search';
+
 import './App.css';
 
 import Home from '../components/Home/Home';
