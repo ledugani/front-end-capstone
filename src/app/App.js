@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import {Route, BrowserRouter, Redirect, Switch} from 'react-router-dom';
 
-import Home from '../components/Home/Home';
-import Login from '../components/Login/Login';
-import MyCollection from '../components/MyCollection/MyCollection';
-import Navbar from '../components/Navbar/Navbar';
-import NewGame from '../components/NewGame/NewGame';
-import Registration from '../components/Registration/Registration';
-import Search from '../components/Search/Search';
-
 import './App.css';
 
-import Home from '../components/Home/Home';
-// import Login from '../components/Login/Login';
+// import Home from '../components/Home/Home';
+import Login from '../components/Login/Login';
 import MyCollection from '../components/MyCollection/MyCollection';
 import Navbar from '../components/Navbar/Navbar';
 // import NewGame from '../components/NewGame/NewGame';
@@ -69,7 +61,7 @@ class App extends Component {
             <div className="container">
               <div className="row">
                 <Switch>
-                  <Route path="/" exact component={Home} />
+                  <Route path="/" exact component={Login} />
                   <PrivateRoute
                     path="/mycollection"
                     authed={this.state.authed}
