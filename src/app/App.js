@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from '../components/Home/Home';
 import Navbar from '../components/Navbar/Navbar';
-// import Login from '../components/Login/Login';
+import Login from '../components/Login/Login';
 // import MyCollection from '../components/MyCollection/MyCollection';
 // import NewGame from '../components/NewGame/NewGame';
 import Registration from '../components/Registration/Registration';
@@ -70,6 +70,11 @@ class App extends Component {
                     path="/registration"
                     authed={this.state.authed}
                     component={Registration}
+                  />
+                  <PublicRoute
+                    path="/login"
+                    authed={this.state.authed}
+                    component={Login}
                   />
                 </Switch>
               </div>
