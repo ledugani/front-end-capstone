@@ -10,6 +10,8 @@ import Navbar from '../components/Navbar/Navbar';
 // import NewGame from '../components/NewGame/NewGame';
 import Registration from '../components/Registration/Registration';
 import Search from '../components/Search/Search';
+import fbConnection from '../firebaseRequests/connection';
+fbConnection();
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
   return (
