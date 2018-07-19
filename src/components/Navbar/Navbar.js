@@ -12,10 +12,9 @@ class Navbar extends React.Component {
       authRequests.logoutUser();
       runAway();
     };
-
     return (
       <div className="Navbar">
-        <nav className="navbar navbar-inverse">
+        <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -31,18 +30,15 @@ class Navbar extends React.Component {
                 authed ? (
                   <ul className="nav navbar-nav navbar-right">
                     <li>
-                      <Link to="/mycollection">My Collection</Link>
-                    </li>
-                    <li>
-                      <Link to="/newgame">New Game</Link>
-                    </li>
-                    <li>
                       <Link to="/search">Search</Link>
+                    </li>
+                    <li>
+                      <Link to="/mycollection">My Collection</Link>
                     </li>
                     <li className="navbar-form">
                       <button
                         onClick={logoutClickEvent}
-                        className="btn btn-danger"
+                        className="btn btn-link"
                       >
                         Logout
                       </button>
@@ -51,7 +47,7 @@ class Navbar extends React.Component {
                 ) : (
                   <ul className="nav navbar-nav navbar-right">
                     <li>
-                      <Link to="/registration">Register</Link>
+                      <Link to="/login">Login</Link>
                     </li>
                   </ul>
                 )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import authRequests from '../../firebaseRequests/auth';
 
+import authRequests from '../../firebaseRequests/auth';
 import './Registration.css';
 
 class Registration extends React.Component {
@@ -18,10 +18,10 @@ class Registration extends React.Component {
     authRequests
       .registerUser(user)
       .then(() => {
-        this.props.history.push('/mycollection');
+        this.props.history.push('/mycollection')
       })
-      .catch((err) => {
-        console.error('Error with registration request', err);
+      .catch((errrr) => {
+        console.error('there was an error registering the user', errrr);
       })
   };
 
@@ -41,52 +41,52 @@ class Registration extends React.Component {
     const { user } = this.state;
     return (
       <div className="Registration">
-        <div>
-          <h1>Create Your Account</h1>
-          <form className="form-horizontal">
+        <div id="login-form">
+          <h1 className="text-center">Register</h1>
+          <form className="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
             <div className="form-group">
-              <label htmlFor="inputEmail" className="control-label">
-                Email:
+              <label htmlFor="inputEmail" className="col-sm-2 control-label">
+                Email
               </label>
-              <div>
+              <div className="col-sm-10">
                 <input
                   type="email"
                   className="form-control"
                   id="inputEmail"
-                  placeholder="email@example.com"
+                  placeholder="Email"
                   value={user.email}
                   onChange={this.emailChange}
                 />
               </div>
             </div>
-            <div>
-              <label htmlFor="inputPassword" className="control-label">
-                Password:
+            <div className="form-group">
+              <label htmlFor="inputPassword" className="col-sm-2 control-label">
+                Password
               </label>
-              <div>
+              <div className="col-sm-10">
                 <input
                   type="password"
                   className="form-control"
                   id="inputPassword"
-                  placeholder="password"
+                  placeholder="Password"
                   value={user.password}
                   onChange={this.passwordChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <div className="text-center">
-                <Link to="/login">Already have an account?</Link>
+              <div className="col-sm-offset-2 col-sm-10 text-center">
+                <Link to="/login">Need to Login?</Link>
               </div>
             </div>
             <div className="form-group">
-              <div>
+              <div className="col-sm-offset-2 col-sm-10">
                 <button
                   type="submit"
-                  className="btn btn-default"
+                  className="btn btn-default col-xs-12"
                   onClick={this.registerClickEvent}
                 >
-                  Continue
+                  Register
                 </button>
               </div>
             </div>

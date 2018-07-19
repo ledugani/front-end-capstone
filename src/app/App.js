@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import {Route, BrowserRouter, Redirect, Switch} from 'react-router-dom';
+import firebase from 'firebase';
 
 import './App.css';
 
-// import Home from '../components/Home/Home';
+import Home from '../components/Home/Home';
+import Navbar from '../components/Navbar/Navbar';
 import Login from '../components/Login/Login';
 import MyCollection from '../components/MyCollection/MyCollection';
-import Navbar from '../components/Navbar/Navbar';
-// import NewGame from '../components/NewGame/NewGame';
+import NewGame from '../components/NewGame/NewGame';
 import Registration from '../components/Registration/Registration';
-// import Search from '../components/Search/Search';
+import Search from '../components/Search/Search';
 import fbConnection from '../firebaseRequests/connection';
 fbConnection();
 
-const PrivateRoute = ({ component: Component, authed, ...rest}) => {
+const PrivateRoute = ({ component: Component, authed, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -39,7 +40,7 @@ const PublicRoute = ({ component: Component, authed, ...rest}) => {
           <Component {...props} />
         ) : (
           <Redirect
-            to={{ pathname: '/orders', state: {from: props.location}}}
+            to={{ pathname: '/mycollection', state: {from: props.location}}}
           />
         )
       }
@@ -52,25 +53,61 @@ class App extends Component {
     authed: false,
   }
 
+  componentDidMount () {
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({authed: true});
+      } else {
+        this.setState({authed: false});
+      }
+    })
+  }
+
+  componentWillUnmount () {
+    this.removeListener();
+  }
+
+  runAway = () => {
+    this.setState({authed: false});
+  }
+
   render() {
     return (
       <div className="App">
         <BrowserRouter>
           <div>
-            <Navbar />
+            <Navbar
+              authed={this.state.authed}
+              runAway={this.runAway}
+            />
             <div className="container">
               <div className="row">
                 <Switch>
-                  <Route path="/" exact component={Login} />
+                  <Route path="/" exact component={Home} />
+                  <PrivateRoute
+                    path="/search"
+                    authed={this.state.authed}
+                    component={Search}
+                  />
                   <PrivateRoute
                     path="/mycollection"
                     authed={this.state.authed}
                     component={MyCollection}
                   />
+                  <PrivateRoute
+                    path="/new"
+                    authed={this.state.authed}
+                    component={NewGame}
+                  />
                   <PublicRoute
                     path="/registration"
                     authed={this.state.authed}
                     component={Registration}
+                  />
+                  <PublicRoute
+                    path="/login"
+                    authed={this.state.authed}
+                    component={Login}
                   />
                 </Switch>
               </div>

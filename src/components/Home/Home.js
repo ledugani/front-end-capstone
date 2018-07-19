@@ -6,7 +6,12 @@ class Home extends React.Component {
   render () {
     return (
       <div className="Home">
-        <h1>Home</h1>
+        <div className="menu">
+          <header>
+            <h1>GameSphere</h1>
+            <h3>It's spherical. SPHERICAL!</h3>
+          </header>
+        </div>
       </div>
     );
   }

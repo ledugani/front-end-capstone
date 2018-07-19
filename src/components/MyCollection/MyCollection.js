@@ -6,7 +6,7 @@ class MyCollection extends React.Component {
   render () {
     return (
       <div className="MyCollection">
-        <h1>MyCollection</h1>
+        <h1>My Collection</h1>
       </div>
     );
   }
