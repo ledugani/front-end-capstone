@@ -76,7 +76,7 @@ class Login extends React.Component {
             </div>
             <div className="form-group">
               <div className="col-sm-offset-2 col-sm-10 text-center">
-                <Link to="/register">Need to Register?</Link>
+                <Link to="/registration">Need to Register?</Link>
               </div>
             </div>
             <div className="form-group">
