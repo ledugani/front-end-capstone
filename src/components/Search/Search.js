@@ -1,6 +1,8 @@
 import React from 'react';
 import gameRequests from '../../firebaseRequests/games';
 
+import Game from '../Game/Game';
+
 import './Search.css';
 
 class Search extends React.Component {
@@ -22,17 +24,24 @@ class Search extends React.Component {
   render () {
     const gameComponents = this.state.games.map((game) => {
       return (
-        <h2>{game.title}</h2>
+        <Game
+          key={game.id}
+          details={game}
+        />
       )
     })
     return (
-      <div className="search-component">
+      <div className="search-component container">
         <div className="Search">
           <h1>Search</h1>
+          <div className="input-group row col-md-10 col-md-offset-1">
+            <span className="input-group-addon glyphicon glyphicon-search" id="sizing-addon2"></span>
+            <input type="text" className="form-control" placeholder="Browse through tens of games..." aria-describedby="sizing-addon2" />
+          </div>
         </div>
-        <div className="More">
-          <h1>More Games</h1>
-          <ul className="games">
+        <div>
+          <h1 className="More">More Games</h1>
+          <ul className="games row">
             {gameComponents}
           </ul>
         </div>
