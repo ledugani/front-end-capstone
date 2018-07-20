@@ -30,10 +30,10 @@ class Navbar extends React.Component {
                 authed ? (
                   <ul className="nav navbar-nav navbar-right">
                     <li>
-                      <Link to="/search">Search</Link>
+                      <Link to="/mycollection">My Collection</Link>
                     </li>
                     <li>
-                      <Link to="/mycollection">My Collection</Link>
+                      <Link to="/search">Search</Link>
                     </li>
                     <li className="navbar-form">
                       <button
