@@ -1,14 +1,12 @@
 {
-  "user-games": {
-    "game0": {
+    "userGame0": {
       "uid": "Uf0DutxkfORvkLOhibHHxZMsZax1",
       "gamesId": "game0",
       "status": "played"
     },
-    "game1": {
+    "userGame1": {
       "uid": "YD2cu8qsBBZ4w6wgbFT6p9hu8rA3",
-      "gamesId": "game10",
+      "gamesId": "game3",
       "status": "owned"
     }
-  }
 }

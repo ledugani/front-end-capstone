@@ -10,6 +10,12 @@ class Search extends React.Component {
     games: [],
   }
 
+  addToCollection = (key) => {
+    const newCollection = {...this.state.collection};
+    newCollection[key] = newCollection[key] + 1 || 1;
+    this.setState({ collection: newCollection });
+  }
+
   componentDidMount () {
     gameRequests
       .getRequest()

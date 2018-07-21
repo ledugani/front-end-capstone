@@ -11,11 +11,7 @@ class NewGame extends React.Component {
     collection: {},
   }
 
-  // addToCollection = (key) => {
-  //   const newCollection = {...this.state.collection};
-  //   newCollection[key] = newCollection[key] + 1 || 1;
-  //   this.setState({ collection: newCollection });
-  // }
+  addNewGame = () => {};
 
   componentDidMount () {
     gameRequests
@@ -110,7 +106,13 @@ class NewGame extends React.Component {
                 <option>Sony Interactive Entertainment</option>
               </select>
             </div>
-            <button type="button" className="btn btn-primary">Primary</button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.addNewGame}
+            >
+              Primary
+            </button>
           </form>
         </div>
       </div>

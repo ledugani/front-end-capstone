@@ -4,7 +4,7 @@ import constants from '../constants';
 const getRequest = (uid) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${constants.firebaseConfig.databaseURL}/user-games.json?orderBy="uid"&equalTo="${uid}"`)
+      .get(`${constants.firebaseConfig.databaseURL}/userGames.json?orderBy="uid"&equalTo="${uid}"`)
       .then(res => {
         const collection = [];
         if (res.data !== null) {
