@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import SingleGame from '../SingleGame/SingleGame';
-
 import collectionRequests from '../../firebaseRequests/collection';
 import gameRequests from '../../firebaseRequests/games';
 import authRequest from '../../firebaseRequests/auth';
@@ -35,13 +33,9 @@ class MyCollection extends React.Component {
       const game = games.find(x => x.id === userCollection.gamesId);
       if(game){
         return (
-          // <SingleGame
-          //   userCollection={userCollection}
-          //   game={game}
-          // />
           <div>
-            <h3>{this.props.userCollection.status}</h3>
-            <h3>{this.props.game.title}</h3>
+            <h3>{userCollection.status}</h3>
+            <h3>{game.title}</h3>
           </div>
         );
       }
