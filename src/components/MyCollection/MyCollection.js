@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
 import collectionRequests from '../../firebaseRequests/collection';
 import authRequest from '../../firebaseRequests/auth';
@@ -17,24 +16,23 @@ class MyCollection extends React.Component {
         this.setState({collection});
       })
       .catch((errr) => {
-        console.error('There was a problem with the user collection get request: ', errr);
+        console.error('There was a problem with the user collection get request -> ', errr);
       })
   }
 
   render () {
-    const collectionComponents = this.state.collection.map((game) => {
+    const collectionComponents = this.state.collection.map((userCollection) => {
       return (
-        <div
-          key={game.id}
-          className="col-xs-12"
+        <button
+          key={userCollection.id}
         >
-          {game.title}
-        </div>
+          {userCollection.id}
+        </button>
       );
     })
     return (
-      <div className="MyCollection col-xs-12">
-        <h1>My Collection</h1>
+      <div className="col-xs-12">
+        <h1 className="MyCollection">My Collection</h1>
         <ul>
           {collectionComponents}
         </ul>
