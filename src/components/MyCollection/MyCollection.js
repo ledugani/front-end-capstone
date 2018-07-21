@@ -31,16 +31,24 @@ class MyCollection extends React.Component {
     const {games} = this.state;
     const collectionComponents = this.state.collection.map((userCollection) => {
       const game = games.find(x => x.id === userCollection.gamesId);
-      if(game){
+      console.error(game);
+      if (game) {
         return (
-          <div>
-            <h3>{userCollection.status}</h3>
+          <div
+            key={game.id}
+            className="panel panel-default col-xs-4"
+          >
             <h3>{game.title}</h3>
+            <img src={game.poster_path} alt={game.title} className="poster" />
+            <p><strong>Developer:</strong> {game.developer}</p>
+            <p><strong>Initial Release:</strong> {game.initial_release}</p>
+            <p>{game.description}</p>
+            <h4><span className="glyphicon glyphicon-ok"></span> {userCollection.status}</h4>
           </div>
         );
       }
       return (
-        <div></div>
+        <div key="ballon">No Games Yet!</div>
       );
     })
     return (
