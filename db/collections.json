@@ -1,0 +1,12 @@
+{
+  "user-collections": {
+    "collection0": {
+      "uid": "Uf0DutxkfORvkLOhibHHxZMsZax1",
+      "games": {
+        "game0": "isOwned",
+        "game1": "isPlayed",
+        "game3": "isWant"
+      }
+    }
+  }
+}
