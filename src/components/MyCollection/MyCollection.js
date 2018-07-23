@@ -31,7 +31,6 @@ class MyCollection extends React.Component {
     const {games} = this.state;
     const collectionComponents = this.state.collection.map((userCollection) => {
       const game = games.find(x => x.id === userCollection.gamesId);
-      console.error(game);
       if (game) {
         return (
           <div
