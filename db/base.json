@@ -1,0 +1,4 @@
+{
+  "games": {"foo": "bar"},
+  "userGames": {"moo": "cow"}
+}
