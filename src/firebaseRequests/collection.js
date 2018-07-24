@@ -21,4 +21,17 @@ const getRequest = (uid) => {
   });
 };
 
-export default { getRequest };
+const deleteGame = (gameId) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .delete(`${constants.firebaseConfig.databaseURL}/userGames/${gameId}`)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((errr) => {
+        reject(errr);
+      })
+  });
+};
+
+export default { getRequest, deleteGame };

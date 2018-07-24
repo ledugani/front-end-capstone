@@ -3,6 +3,7 @@ import React from 'react';
 // import Collection from '../Collection/Collection';
 
 import gameRequests from '../../firebaseRequests/games';
+// import userGameRequests from '../../firebaseRequests/collection';
 import './NewGame.css';
 
 class NewGame extends React.Component {
@@ -34,11 +35,28 @@ class NewGame extends React.Component {
     this.formFieldStringState('poster_path', e);
   };
 
-  formSubmit = (e) => {
-    const {onSubmit} = this.props;
+  formSubmitEvent = (e) => {
+    const newGame = this.state;
     e.preventDefault();
-    onSubmit(this.state.newGame);
-  }
+    gameRequests.postRequest(newGame)
+      .then(() => {
+        gameRequests.getRequest()
+          .then(() => {
+            this.setState({
+              newGame: {
+                title: '',
+                initial_release: '',
+                developer: '',
+                description: '',
+                poster_path: '',
+              }
+            })
+          });
+      })
+      .catch((err) => {
+        console.error('There was a problem with posting the game -> ', err);
+      })
+  };
 
   componentDidMount () {
     gameRequests
@@ -57,7 +75,7 @@ class NewGame extends React.Component {
       <div className="NewGame">
         <h1>New Game</h1>
         <div className="col-xs-8 panel panel-info col-xs-offset-2">
-          <form className="panel-body" onSubmit={this.formSubmit}>
+          <form className="panel-body" onSubmit={this.formSubmitEvent}>
             <div className="form-group">
               <label htmlFor="gameTitle">Game Title:</label>
               <input
@@ -137,9 +155,8 @@ class NewGame extends React.Component {
               </select>
             </div> */}
             <button
-              type="button"
+              type="submit"
               className="btn btn-primary"
-              onClick={this.addNewGame}
             >
               Add Game
             </button>
