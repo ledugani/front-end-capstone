@@ -10,8 +10,8 @@ class NewGame extends React.Component {
   state = {
     newGame: {
       title: '',
-      initial_release: '',
-      developer: '',
+      // initial_release: '',
+      // developer: '',
       description: '',
       poster_path: '',
     }
@@ -45,8 +45,8 @@ class NewGame extends React.Component {
             this.setState({
               newGame: {
                 title: '',
-                initial_release: '',
-                developer: '',
+                // initial_release: '',
+                // developer: '',
                 description: '',
                 poster_path: '',
               }
@@ -57,17 +57,6 @@ class NewGame extends React.Component {
         console.error('There was a problem with posting the game -> ', err);
       })
   };
-
-  componentDidMount () {
-    gameRequests
-      .getRequest()
-      .then((games) => {
-        this.setState({games});
-      })
-      .catch((err) => {
-        console.error('There was a problem with the get game request -> ', err);
-      })
-  }
 
   render () {
     const {newGame} = this.state;
