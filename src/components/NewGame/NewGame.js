@@ -36,7 +36,7 @@ class NewGame extends React.Component {
   };
 
   formSubmitEvent = (e) => {
-    const newGame = this.state;
+    const newGame = this.state.newGame;
     e.preventDefault();
     gameRequests.postRequest(newGame)
       .then(() => {
