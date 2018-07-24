@@ -11,6 +11,19 @@ class MyCollection extends React.Component {
     games: [],
   }
 
+  deleteGameClick = () => {
+    const firebaseId = this.props.match.params;
+    console.error(firebaseId);
+    // collectionRequests
+    //   .deleteGame(firebaseId)
+    //   .then(() => {
+    //     console.error('game has been deleted')
+    //   })
+    //   .catch((err) => {
+    //     console.error('There was a problem with delete request -> ', err);
+    //   })
+  }
+
   componentDidMount () {
     collectionRequests
       .getRequest(authRequest.getUid())
@@ -37,6 +50,7 @@ class MyCollection extends React.Component {
             key={game.id}
             className="panel panel-default col-xs-4"
           >
+            <span className="btn btn-danger" onClick={this.deleteGameClick}>&#10005;</span>
             <h3>{game.title}</h3>
             <img src={game.poster_path} alt={game.title} className="poster" />
             <p><strong>Developer:</strong> {game.developer}</p>
