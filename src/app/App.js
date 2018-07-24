@@ -11,6 +11,7 @@ import MyCollection from '../components/MyCollection/MyCollection';
 import NewGame from '../components/NewGame/NewGame';
 import Registration from '../components/Registration/Registration';
 import Search from '../components/Search/Search';
+
 import fbConnection from '../firebaseRequests/connection';
 fbConnection();
 
