@@ -1,5 +1,7 @@
 import React from 'react';
 import gameRequests from '../../firebaseRequests/games';
+import collectionRequests from '../../firebaseRequests/collection';
+import auth from '../../firebaseRequests/auth';
 
 import Game from '../Game/Game';
 
@@ -12,9 +14,27 @@ class Search extends React.Component {
   }
 
   addToCollection = (gameId) => {
-    const gameCollection = [gameId];
-    this.setState({collection: gameCollection});
+    this.setState({collection: gameId});
+    const gameToAdd = {
+      gamesId: gameId,
+      status: 'owned',
+      uid: auth.getUid(),
+    };
+    collectionRequests
+      .postRequest(gameToAdd)
   }
+
+  // updateToInCollection = (userGameId) => {
+  //   // const {userGame} = this.state;
+  //   collectionRequests
+  //     .putRequest( userGameId, tempGame )
+  //     .then(() => {
+  //       collectionRequests.getRequest();
+  //     })
+  //     .catch((er) => {
+  //       console.error(er);
+  //     });
+  // }
 
   componentDidMount () {
     gameRequests
