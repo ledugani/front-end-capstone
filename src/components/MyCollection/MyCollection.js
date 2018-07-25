@@ -12,7 +12,7 @@ class MyCollection extends React.Component {
   }
 
   deleteGameClick = () => {
-    const firebaseId = this.props.match.params;
+    const firebaseId = this.props;
     console.error(firebaseId);
     // collectionRequests
     //   .deleteGame(firebaseId)
@@ -50,7 +50,7 @@ class MyCollection extends React.Component {
             key={game.id}
             className="panel panel-default col-xs-4"
           >
-            <span className="btn btn-danger" onClick={this.deleteGameClick}>&#10005;</span>
+            <span className="x btn text-right pull-right" onClick={this.deleteGameClick}>&#10005;</span>
             <h3>{game.title}</h3>
             <img src={game.poster_path} alt={game.title} className="poster" />
             <p><strong>Developer:</strong> {game.developer}</p>
