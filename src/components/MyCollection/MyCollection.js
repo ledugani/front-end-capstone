@@ -40,10 +40,11 @@ class MyCollection extends React.Component {
             key={game.id}
           />
         );
+      } else {
+        return (
+          <div key="none">No Games Yet!</div>
+        );
       }
-      return (
-        <div key="ballon">No Games Yet!</div>
-      );
     })
     return (
       <div className="col-xs-12">

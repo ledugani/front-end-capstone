@@ -34,6 +34,19 @@ const postRequest = (game) => {
   });
 };
 
+const putRequest = (userGameId, updatedGame) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .put(`${constants.firebaseConfig.databaseURL}/userGames/${userGameId}.json`, updatedGame)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((errror) => {
+        reject(errror);
+      })
+  });
+};
+
 const deleteGame = (userGameId) => {
   return new Promise((resolve, reject) => {
     axios
@@ -47,4 +60,4 @@ const deleteGame = (userGameId) => {
   });
 };
 
-export default { getRequest, deleteGame, postRequest };
+export default { getRequest, deleteGame, postRequest, putRequest };

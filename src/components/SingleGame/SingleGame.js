@@ -5,6 +5,29 @@ import collectionRequests from '../../firebaseRequests/collection';
 import './SingleGame.css';
 
 class SingleGame extends React.Component {
+  state = {
+    userGame: {
+      gamesId: '',
+      status: '',
+      uid: '',
+    }
+  }
+
+  updateToPlayed = (userGameId) => {
+    // const {userGame} = this.state;
+    const tempGame = {...this.state.userGame};
+    tempGame.status = 'played';
+    this.setState({userGame: tempGame});
+    collectionRequests
+      .putRequest( userGameId, tempGame )
+      .then(() => {
+        collectionRequests.getRequest();
+      })
+      .catch((er) => {
+        console.error(er);
+      });
+  }
+
   deleteGameClick = () => {
     const firebaseId = this.props.userCollection.id;
     collectionRequests
@@ -15,6 +38,10 @@ class SingleGame extends React.Component {
       .catch((err) => {
         console.error('There was a problem with delete request -> ', err);
       })
+  }
+
+  componentDidMount () {
+    this.setState({userGame: this.props.userCollection});
   }
 
   render () {
@@ -36,7 +63,8 @@ class SingleGame extends React.Component {
         <p><strong>Developer:</strong> {game.developer}</p>
         <p><strong>Initial Release:</strong> {game.initial_release}</p>
         <p>{game.description}</p>
-        <h4><span className="glyphicon glyphicon-ok"></span> {userCollection.status}</h4>
+        <h4><span className="glyphicon glyphicon-ok"></span> {this.state.userGame.status}</h4>
+        <button className="btn btn-default" onClick={() => this.updateToPlayed(userCollection.id)}>Played</button>
       </div>
     );
   }
