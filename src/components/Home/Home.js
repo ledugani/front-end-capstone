@@ -22,11 +22,14 @@ class Home extends React.Component {
   render () {
     const gameComponents = this.state.games.map((game) => {
       return (
-        <div class="panel panel-default col-xs-4 sidescroll">
-          <div class="panel-heading">
-            <h3 class="panel-title">{game.title}</h3>
+        <div
+          className="panel panel-default col-xs-4 sidescroll"
+          key={game.id}
+        >
+          <div className="panel-heading">
+            <h3 className="panel-title">{game.title}</h3>
           </div>
-          <div class="panel-body">
+          <div className="panel-body">
             <img src={game.poster_path} alt={game.title} className="gamePoster" />
             <p>{game.description}</p>
           </div>
@@ -42,11 +45,11 @@ class Home extends React.Component {
             <h1>GameSphere</h1>
             <h3>It's spherical. SPHERICAL!</h3>
           </header>
-          <body>
+          <div>
             <ul className="games">
               {gameComponents}
             </ul>
-          </body>
+          </div>
         </div>
       </div>
     );
