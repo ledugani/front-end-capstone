@@ -8,5 +8,15 @@
       "uid": "YD2cu8qsBBZ4w6wgbFT6p9hu8rA3",
       "gamesId": "game3",
       "status": "owned"
+    },
+    "userGame2": {
+      "uid": "YD2cu8qsBBZ4w6wgbFT6p9hu8rA3",
+      "gamesId": "game4",
+      "status": "owned"
+    },
+    "userGame3": {
+      "uid": "YD2cu8qsBBZ4w6wgbFT6p9hu8rA3",
+      "gamesId": "game0",
+      "status": "owned"
     }
 }

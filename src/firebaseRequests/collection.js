@@ -21,6 +21,32 @@ const getRequest = (uid) => {
   });
 };
 
+const postRequest = (game) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${constants.firebaseConfig.databaseURL}/userGames.json`, game)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+  });
+};
+
+const putRequest = (userGameId, updatedGame) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .put(`${constants.firebaseConfig.databaseURL}/userGames/${userGameId}.json`, updatedGame)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((errror) => {
+        reject(errror);
+      })
+  });
+};
+
 const deleteGame = (userGameId) => {
   return new Promise((resolve, reject) => {
     axios
@@ -34,4 +60,4 @@ const deleteGame = (userGameId) => {
   });
 };
 
-export default { getRequest, deleteGame };
+export default { getRequest, deleteGame, postRequest, putRequest };

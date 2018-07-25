@@ -1,5 +1,7 @@
 import React from 'react';
 import gameRequests from '../../firebaseRequests/games';
+import collectionRequests from '../../firebaseRequests/collection';
+import auth from '../../firebaseRequests/auth';
 
 import Game from '../Game/Game';
 
@@ -8,12 +10,17 @@ import './Search.css';
 class Search extends React.Component {
   state = {
     games: [],
+    collection: [],
   }
 
-  addToCollection = (key) => {
-    const newCollection = {...this.state.collection};
-    newCollection[key] = newCollection[key] + 1 || 1;
-    this.setState({ collection: newCollection });
+  addToCollection = (gameId) => {
+    this.setState({collection: gameId});
+    const gameToAdd = {
+      gamesId: gameId,
+      status: 'owned',
+      uid: auth.getUid(),
+    };
+    collectionRequests.postRequest(gameToAdd);
   }
 
   componentDidMount () {
@@ -33,6 +40,7 @@ class Search extends React.Component {
         <Game
           key={game.id}
           details={game}
+          addToCollection={this.addToCollection}
         />
       )
     })
@@ -42,7 +50,12 @@ class Search extends React.Component {
           <h1>Search</h1>
           <div className="input-group row col-md-10 col-md-offset-1">
             <span className="input-group-addon glyphicon glyphicon-search" id="sizing-addon2"></span>
-            <input type="text" className="form-control" placeholder="Browse through tens of games..." aria-describedby="sizing-addon2" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Browse through tens of games..."
+              aria-describedby="sizing-addon2"
+            />
           </div>
         </div>
         <div>
