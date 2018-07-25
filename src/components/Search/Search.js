@@ -8,12 +8,14 @@ import './Search.css';
 class Search extends React.Component {
   state = {
     games: [],
+    collection: {},
   }
 
-  addToCollection = (key) => {
-    const newCollection = {...this.state.collection};
-    newCollection[key] = newCollection[key] + 1 || 1;
-    this.setState({ collection: newCollection });
+  addToCollection = () => {
+    const allGames = this.state.games;
+    allGames.forEach((game) => {
+      if (game)
+    })
   }
 
   componentDidMount () {
