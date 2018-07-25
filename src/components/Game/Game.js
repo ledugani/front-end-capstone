@@ -5,7 +5,6 @@ import './Game.css';
 class Game extends React.Component {
 
   addClickEvent = () => {
-    console.error('game id: ', this.props.details.id);
     this.props.addToCollection(this.props.details.id);
   };
 
