@@ -33,6 +33,7 @@ class Search extends React.Component {
         <Game
           key={game.id}
           details={game}
+          addToCollection={this.addToCollection}
         />
       )
     })
