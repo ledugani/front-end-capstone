@@ -24,18 +24,6 @@ class Search extends React.Component {
       .postRequest(gameToAdd)
   }
 
-  // updateToInCollection = (userGameId) => {
-  //   // const {userGame} = this.state;
-  //   collectionRequests
-  //     .putRequest( userGameId, tempGame )
-  //     .then(() => {
-  //       collectionRequests.getRequest();
-  //     })
-  //     .catch((er) => {
-  //       console.error(er);
-  //     });
-  // }
-
   componentDidMount () {
     gameRequests
       .getRequest()
