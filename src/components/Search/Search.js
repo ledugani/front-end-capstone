@@ -20,8 +20,7 @@ class Search extends React.Component {
       status: 'owned',
       uid: auth.getUid(),
     };
-    collectionRequests
-      .postRequest(gameToAdd)
+    collectionRequests.postRequest(gameToAdd);
   }
 
   componentDidMount () {
@@ -51,7 +50,12 @@ class Search extends React.Component {
           <h1>Search</h1>
           <div className="input-group row col-md-10 col-md-offset-1">
             <span className="input-group-addon glyphicon glyphicon-search" id="sizing-addon2"></span>
-            <input type="text" className="form-control" placeholder="Browse through tens of games..." aria-describedby="sizing-addon2" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Browse through tens of games..."
+              aria-describedby="sizing-addon2"
+            />
           </div>
         </div>
         <div>

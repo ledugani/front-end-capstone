@@ -14,7 +14,6 @@ class SingleGame extends React.Component {
   }
 
   updateToPlayed = (userGameId) => {
-    // const {userGame} = this.state;
     const tempGame = {...this.state.userGame};
     tempGame.status = 'played';
     this.setState({userGame: tempGame});
