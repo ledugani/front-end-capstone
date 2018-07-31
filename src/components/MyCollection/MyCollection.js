@@ -12,6 +12,14 @@ class MyCollection extends React.Component {
     games: [],
   }
 
+  removeGame = (userGameId) => {
+    const myCollection = [...this.state.collection];
+    const updatedCollection = myCollection.filter((game) => {
+      return game.id !== userGameId;
+    });
+    this.setState({collection: updatedCollection});
+  }
+
   componentDidMount () {
     collectionRequests
       .getRequest(authRequest.getUid())
@@ -37,6 +45,7 @@ class MyCollection extends React.Component {
           <SingleGame
             game={game}
             userCollection={userCollection}
+            removeGame={(e) => {this.removeGame(e)}}
             key={game.id}
           />
         );
