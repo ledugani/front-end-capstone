@@ -32,7 +32,7 @@ class SingleGame extends React.Component {
     collectionRequests
       .deleteGame(firebaseId)
       .then(() => {
-        collectionRequests.getRequest();
+        this.props.removeGame(firebaseId);
       })
       .catch((err) => {
         console.error('There was a problem with delete request -> ', err);
