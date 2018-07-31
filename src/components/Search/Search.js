@@ -6,7 +6,6 @@ import auth from '../../firebaseRequests/auth';
 import Game from '../Game/Game';
 
 import './Search.css';
-import SearchResults from '../SearchResults/SearchResults';
 
 class Search extends React.Component {
   state = {
@@ -89,7 +88,6 @@ class Search extends React.Component {
           </div>
           <div>
             <h1 className="More">Games</h1>
-            <SearchResults results={this.state.results} />
             <ul className="games row">
             {gameComponents}
           </ul>
