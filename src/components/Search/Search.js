@@ -12,7 +12,6 @@ class Search extends React.Component {
     games: [],
     collection: [],
     query: '',
-    results: [],
   }
 
   // getInfo = (keyword) => {
@@ -24,7 +23,7 @@ class Search extends React.Component {
   //   this.setState({results: searchRes})
   // }
 
-  searchFx = (event) => {
+  searchFx = () => {
     const keywords = this.search.value;
     this.setState({
       query: keywords
