@@ -11,6 +11,26 @@ class Search extends React.Component {
   state = {
     games: [],
     collection: [],
+    query: '',
+  }
+
+  // getInfo = (keyword) => {
+  //   console.log(keyword)
+  //   const allGames = this.state.games;
+  //   const searchRes = allGames.filter((game) => {
+  //     return game.title.indexOf(this.state.query) !== -1;
+  //   });
+  //   this.setState({results: searchRes})
+  // }
+
+  searchFx = () => {
+    const keywords = this.search.value;
+    this.setState({
+      query: keywords
+    })
+    // if (event.key === 'Enter') {
+    //   this.getInfo(keywords);
+    // }
   }
 
   addToCollection = (gameId) => {
@@ -35,7 +55,12 @@ class Search extends React.Component {
   }
 
   render () {
-    const gameComponents = this.state.games.map((game) => {
+    let filteredGames = this.state.games.filter(
+      (gameObj) => {
+        return gameObj.title.toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1;
+      }
+    );
+    const gameComponents = filteredGames.map((game) => {
       return (
         <Game
           key={game.id}
@@ -55,14 +80,17 @@ class Search extends React.Component {
               className="form-control"
               placeholder="Browse through tens of games..."
               aria-describedby="sizing-addon2"
+              ref={input => this.search = input}
+              onChange={this.searchFx}
+              onKeyPress={this.searchFx}
             />
           </div>
-        </div>
-        <div>
-          <h1 className="More">More Games</h1>
-          <ul className="games row">
+          <div>
+            <h1 className="More">Games</h1>
+            <ul className="games row">
             {gameComponents}
           </ul>
+          </div>
         </div>
       </div>
     );
