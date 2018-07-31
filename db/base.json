@@ -1,4 +1,5 @@
 {
   "games": {"foo": "bar"},
+  "platforms": {"bah": "sheep"},
   "userGames": {"moo": "cow"}
 }

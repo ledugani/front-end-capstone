@@ -1,10 +1,17 @@
 import React from 'react';
 // import Game from '../Game/Game';
 // import Collection from '../Collection/Collection';
+import Checkbox from '../Checkbox/Checkbox';
 
 import gameRequests from '../../firebaseRequests/games';
 // import userGameRequests from '../../firebaseRequests/collection';
 import './NewGame.css';
+
+const items = [
+  'Xbox One',
+  'PS4',
+  'Nintendo Switch',
+];
 
 class NewGame extends React.Component {
   state = {
@@ -12,6 +19,7 @@ class NewGame extends React.Component {
       title: '',
       // initial_release: '',
       // developer: '',
+      platforms: '',
       description: '',
       poster_path: '',
     }
@@ -58,6 +66,32 @@ class NewGame extends React.Component {
       })
   };
 
+  componentWillMount () {
+    this.selectedCheckboxes = new Set();
+  }
+
+  toggleCheckbox = (label) => {
+    if (this.selectedCheckboxes.has(label)) {
+      this.selectedCheckboxes.delete(label);
+    } else {
+      this.selectedCheckboxes.add(label);
+    }
+  }
+
+  createCheckbox = (label) => {
+    return (
+      <Checkbox
+        label={label}
+        handleCheckboxChange={this.toggleCheckbox}
+        key={label}
+      />
+    );
+  }
+
+  createCheckboxes = () => {
+    items.map(this.createCheckbox)
+  }
+
   render () {
     const {newGame} = this.state;
     return (
@@ -76,8 +110,9 @@ class NewGame extends React.Component {
                 onChange={this.titleChange}
               />
             </div>
-            {/* <div className="form-group">
-              <label>Platform: </label>
+            <div className="form-group">
+              {this.createCheckboxes()}
+              {/* <label>Platform: </label>
               <br/>
               <label htmlFor="platform" className="checkbox-inline">
                 <input type="checkbox" id="xbox-one" value="option1"/>
@@ -90,8 +125,8 @@ class NewGame extends React.Component {
               <label htmlFor="platform" className="checkbox-inline">
                 <input type="checkbox" id="nintendo-switch" value="option3"/>
                 Nintendo Switch
-              </label>
-            </div> */}
+              </label> */}
+            </div>
             <div>
               <label htmlFor="description">Description: </label>
               <textarea
