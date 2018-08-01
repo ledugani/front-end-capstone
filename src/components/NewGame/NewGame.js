@@ -7,12 +7,6 @@ import gameRequests from '../../firebaseRequests/games';
 // import userGameRequests from '../../firebaseRequests/collection';
 import './NewGame.css';
 
-const items = [
-  'Xbox One',
-  'PS4',
-  'Nintendo Switch',
-];
-
 class NewGame extends React.Component {
   state = {
     newGame: {
@@ -66,16 +60,8 @@ class NewGame extends React.Component {
       })
   };
 
-  componentWillMount () {
-    this.selectedCheckboxes = new Set();
-  }
-
   toggleCheckbox = (label) => {
-    if (this.selectedCheckboxes.has(label)) {
-      this.selectedCheckboxes.delete(label);
-    } else {
-      this.selectedCheckboxes.add(label);
-    }
+
   }
 
   createCheckbox = (label) => {
@@ -89,7 +75,18 @@ class NewGame extends React.Component {
   }
 
   createCheckboxes = () => {
-    items.map(this.createCheckbox)
+    // items.map(this.createCheckbox)
+  }
+
+  componentDidMount () {
+    gameRequests
+      .getRequest()
+      .then((games) => {
+        this.setState({games});
+      })
+      .catch((err) => {
+        console.error('There was a problem requesting game info.', err);
+      })
   }
 
   render () {
