@@ -1,9 +1,10 @@
 import React from 'react';
 // import Game from '../Game/Game';
 // import Collection from '../Collection/Collection';
-import Checkbox from '../Checkbox/Checkbox';
+import Platforms from '../Platforms/Platforms';
 
 import gameRequests from '../../firebaseRequests/games';
+import platformRequests from '../../firebaseRequests/platforms';
 // import userGameRequests from '../../firebaseRequests/collection';
 import './NewGame.css';
 
@@ -61,12 +62,12 @@ class NewGame extends React.Component {
   };
 
   toggleCheckbox = (label) => {
-
+    console.log(label)
   }
 
   createCheckbox = (label) => {
     return (
-      <Checkbox
+      <Platforms
         label={label}
         handleCheckboxChange={this.toggleCheckbox}
         key={label}
@@ -75,7 +76,8 @@ class NewGame extends React.Component {
   }
 
   createCheckboxes = () => {
-    // items.map(this.createCheckbox)
+    console.log(this.state.platforms);
+    // this.state.platforms.map(this.createCheckbox)
   }
 
   componentDidMount () {
@@ -86,6 +88,15 @@ class NewGame extends React.Component {
       })
       .catch((err) => {
         console.error('There was a problem requesting game info.', err);
+      })
+
+    platformRequests
+      .getRequest()
+      .then((platforms) => {
+        this.setState({platforms});
+      })
+      .catch((err) => {
+        console.error('There was a problem requesting platforms', err)
       })
   }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Checkbox.css';
+import './Platforms.css';
 
-class Checkbox extends React.Component {
+class Platforms extends React.Component {
   state = {
     isChecked: false,
   }
@@ -38,9 +38,9 @@ class Checkbox extends React.Component {
   }
 };
 
-Checkbox.propTypes = {
+Platforms.propTypes = {
   label: PropTypes.string.isRequired,
   handleCheckboxChange: PropTypes.func.isRequired,
 }
 
-export default Checkbox;
+export default Platforms;
