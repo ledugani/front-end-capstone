@@ -9,8 +9,9 @@ class Game extends React.Component {
   };
 
   render () {
-    const { details } = this.props;
-    const gameStatus = details.status === 'played' || 'owned' || 'want';
+    const { details, userCollection } = this.props;
+    console.log(userCollection);
+    const gameStatus = userCollection;
     return (
       <div className="panel panel-default col-md-8 col-md-offset-2">
         <div className="panel-heading">
@@ -19,12 +20,21 @@ class Game extends React.Component {
         <div className="panel-body">
           <img src={details.poster_path} alt={details.title} className="poster" />
           <p>{details.description}</p>
-          <button
-            className="btn btn-default"
-            onClick={this.addClickEvent}
-          >
-            { gameStatus ? 'Add to Collection' : 'In Collection'}
-          </button>
+          { gameStatus === 'played' ? (
+            <button
+              className="btn btn-default"
+              disabled
+            >
+              In Collection
+            </button>
+          ) : (
+            <button
+              className="btn btn-default"
+              onClick={this.addClickEvent}
+            >
+              Add to Collection
+            </button>
+          )}
         </div>
       </div>
     );

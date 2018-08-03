@@ -48,6 +48,11 @@ class Search extends React.Component {
       .getRequest()
       .then((games) => {
         this.setState({games});
+        collectionRequests
+          .getRequest(auth.getUid())
+          .then((collection) => {
+            this.setState({collection});
+          })
       })
       .catch((err) => {
         console.error('There was a problem requesting game info.', err);
@@ -55,20 +60,42 @@ class Search extends React.Component {
   }
 
   render () {
+    // const gameComponents = filteredGames.map((game) => {
+    //   userCollection.map((userGame) => {
+    //     if (game.id === userGame.gamesId) {
+    //       console.log(userGame);
+    //     }
+    //   });
+    // }
+    const games = this.state.games;
+    const userCollection = this.state.collection;
+
+    const fix = games.map((singleGame) => {
+      return userCollection.map((userGame) => {
+        if (singleGame.id === userGame.gamesId) {
+          return userGame;
+        }
+        return userGame;
+      })
+    })
+
     let filteredGames = this.state.games.filter(
       (gameObj) => {
         return gameObj.title.toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1;
       }
     );
+
     const gameComponents = filteredGames.map((game) => {
       return (
         <Game
           key={game.id}
           details={game}
           addToCollection={this.addToCollection}
+          userCollection={fix}
         />
       )
     })
+
     return (
       <div className="search-component container">
         <div className="Search">
