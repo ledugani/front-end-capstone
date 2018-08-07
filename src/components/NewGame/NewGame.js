@@ -1,7 +1,7 @@
 import React from 'react';
 // import Game from '../Game/Game';
 // import Collection from '../Collection/Collection';
-import Platforms from '../Platforms/Platforms';
+// import Platforms from '../Platforms/Platforms';
 
 import gameRequests from '../../firebaseRequests/games';
 import platformRequests from '../../firebaseRequests/platforms';
@@ -14,11 +14,37 @@ class NewGame extends React.Component {
       title: '',
       // initial_release: '',
       // developer: '',
-      platforms: '',
+      platforms: {},
       description: '',
       poster_path: '',
     }
   }
+
+  handleDaySelect  = (event)  => {
+    var dayArr = [...this.state.days];
+    const value = event.target.value
+    const index = dayArr.findIndex(day => day === value);
+    if(index > -1) {
+        dayArr = [...dayArr.slice(0, index), ...dayArr.slice(index + 1)]
+    } else {
+        dayArr.push(value);
+    }
+    this.setState({days: dayArr});
+ }
+
+  // checkItem = (platforms, e) => {
+  //   let itemChecked = {...this.state.newGame};
+  //   itemChecked[platforms] = e.target.value;
+  //   this.setState({newGame: itemChecked});
+  // }
+
+  // xboxOneChange = (e) => {
+  //   this.checkItem('platforms', e)
+  // }
+
+  // ps4Change = (e) => {
+  //   this.checkItem('platforms', e)
+  // }
 
   formFieldStringState = (name, e) => {
     const tempGame = {...this.state.newGame};
@@ -61,47 +87,44 @@ class NewGame extends React.Component {
       })
   };
 
-  toggleCheckbox = (label) => {
-    console.log(label)
-  }
+  // toggleCheckbox = (label) => {
+  //   console.log(label)
+  // }
 
-  createCheckbox = (label) => {
-    return (
-      <Platforms
-        label={label}
-        handleCheckboxChange={this.toggleCheckbox}
-        key={label}
-      />
-    );
-  }
-
-  createCheckboxes = () => {
-    console.log(this.state.platforms);
-    // this.state.platforms.map(this.createCheckbox)
-  }
+  // createCheckbox = (label) => {
+  //   return (
+  //     <Platforms
+  //       label={label}
+  //       handleCheckboxChange={this.toggleCheckbox}
+  //       key={label}
+  //     />
+  //   );
+  // }
 
   componentDidMount () {
     gameRequests
       .getRequest()
       .then((games) => {
         this.setState({games});
+        platformRequests
+          .getRequest()
+          .then((platforms) => {
+            this.setState({platforms});
+          })
       })
       .catch((err) => {
         console.error('There was a problem requesting game info.', err);
-      })
-
-    platformRequests
-      .getRequest()
-      .then((platforms) => {
-        this.setState({platforms});
-      })
-      .catch((err) => {
-        console.error('There was a problem requesting platforms', err)
       })
   }
 
   render () {
     const {newGame} = this.state;
+
+    // const createCheckboxes = () => {
+    //   console.log(this.state.platforms);
+    //   this.state.platforms.map(this.createCheckbox)
+    // }
+
     return (
       <div className="NewGame">
         <h1>New Game</h1>
@@ -119,21 +142,31 @@ class NewGame extends React.Component {
               />
             </div>
             <div className="form-group">
-              {this.createCheckboxes()}
-              {/* <label>Platform: </label>
+              {/* {createCheckboxes()} */}
+              <label>Platform: </label>
               <br/>
               <label htmlFor="platform" className="checkbox-inline">
-                <input type="checkbox" id="xbox-one" value="option1"/>
+                <input
+                  type="checkbox"
+                  id="xbox-one"
+                  value="Xbox One"
+                  // onChange={ this.xboxOneChange }
+                />
                 Xbox One
               </label>
               <label htmlFor="platform" className="checkbox-inline">
-                <input type="checkbox" id="ps4" value="option2"/>
+                <input
+                  type="checkbox"
+                  id="ps4"
+                  value="option2"
+                  // onChange= { this.ps4Change }
+                />
                 PS4
               </label>
               <label htmlFor="platform" className="checkbox-inline">
                 <input type="checkbox" id="nintendo-switch" value="option3"/>
                 Nintendo Switch
-              </label> */}
+              </label>
             </div>
             <div>
               <label htmlFor="description">Description: </label>
