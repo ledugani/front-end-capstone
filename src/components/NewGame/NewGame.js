@@ -37,14 +37,15 @@ class NewGame extends React.Component {
   //Attempt #4
   platformChange = (e) => {
     const tempGame = {...this.state.newGame};
-    const platformUpdate = tempGame.platforms;
-    if (e.target.checked) {
-      platformUpdate.push(e.target.value);
-    } else {
-      let index = platformUpdate.indexOf(e.target.value);
-      platformUpdate.splice(index, 1);
-    }
-    this.setState({newGame: platformUpdate})
+    const platformUpdate = tempGame['platforms'];
+    platformUpdate.concat(e.target.value);
+    // if (e.target.checked) {
+    //   platformUpdate.concat(e.target.value);
+    // } else {
+    //   let index = platformUpdate.indexOf(e.target.value);
+    //   platformUpdate.splice(index, 1);
+    // }
+    this.setState({newGame: tempGame})
   }
 
   formFieldStringState = (name, e) => {
@@ -77,6 +78,7 @@ class NewGame extends React.Component {
                 title: '',
                 // initial_release: '',
                 // developer: '',
+                platforms: {},
                 description: '',
                 poster_path: '',
               }
