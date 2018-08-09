@@ -13,25 +13,13 @@ class NewGame extends React.Component {
     newGame: {
       title: '',
       // initial_release: '',
-      // developer: '',
+      developer: '',
       platforms: {},
       description: '',
       poster_path: '',
     }
   }
-
-  handleDaySelect  = (event)  => {
-    var dayArr = [...this.state.days];
-    const value = event.target.value
-    const index = dayArr.findIndex(day => day === value);
-    if(index > -1) {
-        dayArr = [...dayArr.slice(0, index), ...dayArr.slice(index + 1)]
-    } else {
-        dayArr.push(value);
-    }
-    this.setState({days: dayArr});
- }
-
+  //Attempt #3
   // checkItem = (platforms, e) => {
   //   let itemChecked = {...this.state.newGame};
   //   itemChecked[platforms] = e.target.value;
@@ -45,6 +33,19 @@ class NewGame extends React.Component {
   // ps4Change = (e) => {
   //   this.checkItem('platforms', e)
   // }
+
+  //Attempt #4
+  platformChange = (e) => {
+    const tempGame = {...this.state.newGame};
+    const platformUpdate = tempGame.platforms;
+    if (e.target.checked) {
+      platformUpdate.push(e.target.value);
+    } else {
+      let index = platformUpdate.indexOf(e.target.value);
+      platformUpdate.splice(index, 1);
+    }
+    this.setState({newGame: platformUpdate})
+  }
 
   formFieldStringState = (name, e) => {
     const tempGame = {...this.state.newGame};
@@ -150,7 +151,7 @@ class NewGame extends React.Component {
                   type="checkbox"
                   id="xbox-one"
                   value="Xbox One"
-                  // onChange={ this.xboxOneChange }
+                  onChange={ this.platformChange }
                 />
                 Xbox One
               </label>
@@ -158,13 +159,18 @@ class NewGame extends React.Component {
                 <input
                   type="checkbox"
                   id="ps4"
-                  value="option2"
-                  // onChange= { this.ps4Change }
+                  value="PS4"
+                  onChange= { this.platformChange }
                 />
                 PS4
               </label>
               <label htmlFor="platform" className="checkbox-inline">
-                <input type="checkbox" id="nintendo-switch" value="option3"/>
+                <input
+                  type="checkbox"
+                  id="nintendo-switch"
+                  value="Nintendo Switch"
+                  onChange={ this.platformChange }
+                />
                 Nintendo Switch
               </label>
             </div>
@@ -189,36 +195,36 @@ class NewGame extends React.Component {
                 onChange={this.imageUrlChange}
               />
             </div>
-            {/* <div className="form-group form-inline">
+            <div className="form-group form-inline">
               <label htmlFor="datetime">Release Date: </label>
               <input type="date" id="datetime" placeholder="MM/DD/YYYY"/>
             </div>
             <div>
               <label htmlFor="developer">Development Team: </label>
-              <select id="developer">
-                <option>Bethesda Game Studios</option>
-                <option>BioWare</option>
-                <option>Blizzard Entertainment</option>
-                <option>Bungie</option>
-                <option>EA</option>
-                <option>Epic Games</option>
-                <option>Game Freak</option>
-                <option>Harmonix Music Systems</option>
-                <option>Id Software</option>
-                <option>Infinity Ward</option>
-                <option>Insomniac Games</option>
-                <option>Konami</option>
-                <option>LucasArts</option>
-                <option>Midway</option>
-                <option>Namco</option>
-                <option>Naughty Dog</option>
-                <option>Neversoft</option>
-                <option>Rockstar Games</option>
-                <option>Square Enix</option>
-                <option>Sony Interactive Entertainment</option>
-                <option>Ubisoft</option>
+              <select id="developer" onChange={this.changeDev}>
+                <option value="Bethesda Game Studios">Bethesda Game Studios</option>
+                <option value="BioWare">BioWare</option>
+                <option value="Blizzard Entertainment">Blizzard Entertainment</option>
+                <option value="Bungie">Bungie</option>
+                <option value="EA">EA</option>
+                <option value="Epic Games">Epic Games</option>
+                <option value="Game Freak">Game Freak</option>
+                <option value="Harmonix Music Systems">Harmonix Music Systems</option>
+                <option value="Id Software">Id Software</option>
+                <option value="Infinity Ward">Infinity Ward</option>
+                <option value="Insomniac Games">Insomniac Games</option>
+                <option value="Konami">Konami</option>
+                <option value="LucasArts">LucasArts</option>
+                <option value="Midway">Midway</option>
+                <option value="Namco">Namco</option>
+                <option value="Naughty Dog">Naughty Dog</option>
+                <option value="Neversoft">Neversoft</option>
+                <option value="Rockstar Games">Rockstar Games</option>
+                <option value="Square Enix">Square Enix</option>
+                <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
+                <option value="Ubisoft">Ubisoft</option>
               </select>
-            </div> */}
+            </div>
             <button
               type="submit"
               className="btn btn-primary"
