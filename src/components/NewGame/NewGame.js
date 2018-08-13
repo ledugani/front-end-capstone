@@ -14,7 +14,11 @@ class NewGame extends React.Component {
       title: '',
       // initial_release: '',
       developer: '',
-      platforms: {},
+      platforms: {
+        xboxOne: false,
+        ps4: false,
+        switch: false,
+      },
       description: '',
       poster_path: '',
     }
@@ -35,17 +39,40 @@ class NewGame extends React.Component {
   // }
 
   //Attempt #4
-  platformChange = (e) => {
-    const tempGame = {...this.state.newGame};
-    const platformUpdate = tempGame['platforms'];
-    platformUpdate.concat(e.target.value);
-    // if (e.target.checked) {
-    //   platformUpdate.concat(e.target.value);
-    // } else {
-    //   let index = platformUpdate.indexOf(e.target.value);
-    //   platformUpdate.splice(index, 1);
-    // }
-    this.setState({newGame: tempGame})
+  platformChange = (e, console) => {
+    const platform = e.target.value;
+    let tempGame;
+
+    if (platform === 'ps4') {
+      tempGame = {
+        ...this.state.newGame,
+        platforms: {
+          ...this.state.newGame.platforms,
+          ps4: e.target.checked,
+        }
+      }
+    } else if (platform === 'xboxOne') {
+      tempGame = {
+        ...this.state.newGame,
+        platforms: {
+          ...this.state.newGame.platforms,
+          xboxOne: e.target.checked,
+        }
+      }
+    } else if (platform === 'switch') {
+      tempGame = {
+        ...this.state.newGame,
+        platforms: {
+          ...this.state.newGame.platforms,
+          switch: e.target.checked,
+        }
+      }
+    }
+
+    if (platform === console) {
+      // tempGame[console] = e.target.checked;
+      this.setState({newGame: tempGame});
+    }
   }
 
   formFieldStringState = (name, e) => {
@@ -78,7 +105,11 @@ class NewGame extends React.Component {
                 title: '',
                 // initial_release: '',
                 // developer: '',
-                platforms: {},
+                platforms: {
+                  xboxOne: false,
+                  ps4: false,
+                  switch: false,
+                },
                 description: '',
                 poster_path: '',
               }
@@ -152,8 +183,8 @@ class NewGame extends React.Component {
                 <input
                   type="checkbox"
                   id="xbox-one"
-                  value="Xbox One"
-                  onChange={ this.platformChange }
+                  value="xboxOne"
+                  onChange={ (e) => this.platformChange(e, 'xboxOne') }
                 />
                 Xbox One
               </label>
@@ -161,8 +192,8 @@ class NewGame extends React.Component {
                 <input
                   type="checkbox"
                   id="ps4"
-                  value="PS4"
-                  onChange= { this.platformChange }
+                  value="ps4"
+                  onChange= { (e) => this.platformChange(e, 'ps4') }
                 />
                 PS4
               </label>
@@ -170,8 +201,8 @@ class NewGame extends React.Component {
                 <input
                   type="checkbox"
                   id="nintendo-switch"
-                  value="Nintendo Switch"
-                  onChange={ this.platformChange }
+                  value="switch"
+                  onChange={ (e) => this.platformChange(e, 'switch') }
                 />
                 Nintendo Switch
               </label>
@@ -197,7 +228,7 @@ class NewGame extends React.Component {
                 onChange={this.imageUrlChange}
               />
             </div>
-            <div className="form-group form-inline">
+            {/* <div className="form-group form-inline">
               <label htmlFor="datetime">Release Date: </label>
               <input type="date" id="datetime" placeholder="MM/DD/YYYY"/>
             </div>
@@ -226,7 +257,7 @@ class NewGame extends React.Component {
                 <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
                 <option value="Ubisoft">Ubisoft</option>
               </select>
-            </div>
+            </div> */}
             <button
               type="submit"
               className="btn btn-primary"
