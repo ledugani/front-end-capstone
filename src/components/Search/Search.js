@@ -48,6 +48,11 @@ class Search extends React.Component {
       .getRequest()
       .then((games) => {
         this.setState({games});
+        collectionRequests
+          .getRequest(auth.getUid())
+          .then((collection) => {
+            this.setState({collection});
+          })
       })
       .catch((err) => {
         console.error('There was a problem requesting game info.', err);

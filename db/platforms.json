@@ -1,0 +1,11 @@
+{
+  "platform0": {
+    "name": "Xbox One"
+  },
+  "platform1": {
+    "name": "PlayStation 4"
+  },
+  "platform2": {
+    "name": "Nintendo Switch"
+  }
+}
