@@ -23,22 +23,7 @@ class NewGame extends React.Component {
       poster_path: '',
     }
   }
-  //Attempt #3
-  // checkItem = (platforms, e) => {
-  //   let itemChecked = {...this.state.newGame};
-  //   itemChecked[platforms] = e.target.value;
-  //   this.setState({newGame: itemChecked});
-  // }
 
-  // xboxOneChange = (e) => {
-  //   this.checkItem('platforms', e)
-  // }
-
-  // ps4Change = (e) => {
-  //   this.checkItem('platforms', e)
-  // }
-
-  //Attempt #4
   platformChange = (e, console) => {
     const platform = e.target.value;
     let tempGame;
@@ -70,7 +55,6 @@ class NewGame extends React.Component {
     }
 
     if (platform === console) {
-      // tempGame[console] = e.target.checked;
       this.setState({newGame: tempGame});
     }
   }
@@ -121,20 +105,6 @@ class NewGame extends React.Component {
       })
   };
 
-  // toggleCheckbox = (label) => {
-  //   console.log(label)
-  // }
-
-  // createCheckbox = (label) => {
-  //   return (
-  //     <Platforms
-  //       label={label}
-  //       handleCheckboxChange={this.toggleCheckbox}
-  //       key={label}
-  //     />
-  //   );
-  // }
-
   componentDidMount () {
     gameRequests
       .getRequest()
@@ -153,11 +123,6 @@ class NewGame extends React.Component {
 
   render () {
     const {newGame} = this.state;
-
-    // const createCheckboxes = () => {
-    //   console.log(this.state.platforms);
-    //   this.state.platforms.map(this.createCheckbox)
-    // }
 
     return (
       <div className="NewGame">

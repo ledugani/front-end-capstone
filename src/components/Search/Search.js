@@ -90,8 +90,9 @@ class Search extends React.Component {
               onKeyPress={this.searchFx}
             />
           </div>
+          <hr/>
           <div>
-            <h1 className="More">Games</h1>
+            <h2 className="More">Suggested Games</h2>
             <ul className="games row">
             {gameComponents}
           </ul>
