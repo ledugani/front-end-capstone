@@ -12,7 +12,7 @@ class NewGame extends React.Component {
   state = {
     newGame: {
       title: '',
-      // initial_release: '',
+      initial_release: '',
       developer: '',
       platforms: {
         xboxOne: false,
@@ -59,6 +59,14 @@ class NewGame extends React.Component {
     }
   }
 
+  dateChange = (e) => {
+    const temporGame = {
+      ...this.state.newGame,
+      initial_release: e.target.value,
+    }
+    this.setState({newGame: temporGame})
+  }
+
   devChange = (e) => {
     const tempoGame = {
       ...this.state.newGame,
@@ -95,7 +103,7 @@ class NewGame extends React.Component {
             this.setState({
               newGame: {
                 title: '',
-                // initial_release: '',
+                initial_release: '',
                 developer: '',
                 platforms: {
                   xboxOne: false,
@@ -227,10 +235,15 @@ class NewGame extends React.Component {
                 onChange={this.imageUrlChange}
               />
             </div>
-            {/* <div className="form-group form-inline">
+            <div className="form-group form-inline">
               <label htmlFor="datetime">Release Date: </label>
-              <input type="date" id="datetime" placeholder="MM/DD/YYYY"/>
-            </div> */}
+              <input
+                type="date"
+                id="datetime"
+                placeholder="MM/DD/YYYY"
+                onChange={ (e) => this.dateChange(e) }
+              />
+            </div>
             <button
               type="submit"
               className="btn btn-primary"

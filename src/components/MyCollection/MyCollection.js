@@ -38,6 +38,11 @@ class MyCollection extends React.Component {
 
   render () {
     const {games} = this.state;
+    // if (this.state.collection.length === 0) {
+    //   console.log('no games')
+    // } else if (this.state.collection.length > 0) {
+    //   console.log('yes games')
+    // }
     const collectionComponents = this.state.collection.map((userCollection) => {
       const game = games.find(x => x.id === userCollection.gamesId);
       if (game) {
@@ -45,7 +50,7 @@ class MyCollection extends React.Component {
           <SingleGame
             game={game}
             userCollection={userCollection}
-            removeGame={(e) => {this.removeGame(e)}}
+            removeGame={ (e) => this.removeGame(e) }
             key={game.id}
           />
         );
