@@ -14,29 +14,18 @@ class Search extends React.Component {
     query: '',
   }
 
-  // getInfo = (keyword) => {
-  //   console.log(keyword)
-  //   const allGames = this.state.games;
-  //   const searchRes = allGames.filter((game) => {
-  //     return game.title.indexOf(this.state.query) !== -1;
-  //   });
-  //   this.setState({results: searchRes})
-  // }
-
   searchFx = () => {
     const keywords = this.search.value;
     this.setState({
       query: keywords
     })
-    // if (event.key === 'Enter') {
-    //   this.getInfo(keywords);
-    // }
   }
 
-  addToCollection = (gameId) => {
+  addToCollection = (gameId, gameTitle) => {
     this.setState({collection: gameId});
     const gameToAdd = {
-      gamesId: gameId,
+      gameId,
+      gameTitle,
       status: 'owned',
       uid: auth.getUid(),
     };
@@ -70,6 +59,7 @@ class Search extends React.Component {
         <Game
           key={game.id}
           details={game}
+          collection={this.state.collection}
           addToCollection={this.addToCollection}
         />
       )
@@ -91,11 +81,11 @@ class Search extends React.Component {
             />
           </div>
           <hr/>
-          <div>
-            <h2 className="More">Suggested Games</h2>
+          <h2 className="More">Suggested Games</h2>
+          <div className="suggestions">
             <ul className="games row">
-            {gameComponents}
-          </ul>
+              {gameComponents}
+            </ul>
           </div>
         </div>
       </div>
