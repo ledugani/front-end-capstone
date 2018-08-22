@@ -1,9 +1,9 @@
 .nav.navbar-nav.navbar-right li a, .nav.navbar-nav.navbar-right li button,
-.navbar-header a
+.navbar-brand
  {
-  color: white;
+  color: white !important;
 }
 
 .navbar-default {
-  background-image: linear-gradient(to right, green , blue);
+  background-image: linear-gradient(to right, #4286f4, #0FC8C2);
 }
