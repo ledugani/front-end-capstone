@@ -1,3 +1,9 @@
-.Navbar {
-  background-color: pink;
+.nav.navbar-nav.navbar-right li a, .nav.navbar-nav.navbar-right li button,
+.navbar-header a
+ {
+  color: white;
+}
+
+.navbar-default {
+  background-image: linear-gradient(to right, green , blue);
 }
