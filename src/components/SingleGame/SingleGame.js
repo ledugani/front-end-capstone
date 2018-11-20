@@ -57,13 +57,13 @@ class SingleGame extends React.Component {
         >
           &#10005;
         </span>
-        <h3>{game.title}</h3>
+        <h3 className="all">{game.title}</h3>
         <img src={game.poster_path} alt={game.title} className="poster" />
         <p><strong>Developer:</strong> {game.developer}</p>
         <p><strong>Initial Release:</strong> {game.initial_release}</p>
-        <p>{game.description}</p>
-        <h4><span className="glyphicon glyphicon-ok"></span> {this.state.userGame.status}</h4>
-        <button className="btn btn-default" onClick={() => this.updateToPlayed(userCollection.id)}>Played</button>
+        <p className="all">{game.description}</p>
+        <h4><span className="glyphicon glyphicon-ok"></span> {this.state.userGame.status} </h4>
+        <button className="btn btn-default played" onClick={() => this.updateToPlayed(userCollection.id)}>Played</button>
       </div>
     );
   }
