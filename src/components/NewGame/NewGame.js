@@ -12,7 +12,7 @@ class NewGame extends React.Component {
   state = {
     newGame: {
       title: '',
-      // initial_release: '',
+      initial_release: '',
       developer: '',
       platforms: {
         xboxOne: false,
@@ -59,6 +59,22 @@ class NewGame extends React.Component {
     }
   }
 
+  dateChange = (e) => {
+    const temporGame = {
+      ...this.state.newGame,
+      initial_release: e.target.value,
+    }
+    this.setState({newGame: temporGame})
+  }
+
+  devChange = (e) => {
+    const tempoGame = {
+      ...this.state.newGame,
+      developer: e.target.value,
+    }
+    this.setState({newGame: tempoGame})
+  }
+
   formFieldStringState = (name, e) => {
     const tempGame = {...this.state.newGame};
     tempGame[name] = e.target.value;
@@ -87,8 +103,8 @@ class NewGame extends React.Component {
             this.setState({
               newGame: {
                 title: '',
-                // initial_release: '',
-                // developer: '',
+                initial_release: '',
+                developer: '',
                 platforms: {
                   xboxOne: false,
                   ps4: false,
@@ -141,7 +157,33 @@ class NewGame extends React.Component {
               />
             </div>
             <div className="form-group">
-              {/* {createCheckboxes()} */}
+              <label htmlFor="developer">Development Team: </label>
+              <br/>
+              <select id="developer" onChange={ (e) => this.devChange(e) }>
+                <option value="Bethesda Game Studios">Bethesda Game Studios</option>
+                <option value="BioWare">BioWare</option>
+                <option value="Blizzard Entertainment">Blizzard Entertainment</option>
+                <option value="Bungie">Bungie</option>
+                <option value="EA">EA</option>
+                <option value="Epic Games">Epic Games</option>
+                <option value="Game Freak">Game Freak</option>
+                <option value="Harmonix Music Systems">Harmonix Music Systems</option>
+                <option value="Id Software">Id Software</option>
+                <option value="Infinity Ward">Infinity Ward</option>
+                <option value="Insomniac Games">Insomniac Games</option>
+                <option value="Konami">Konami</option>
+                <option value="LucasArts">LucasArts</option>
+                <option value="Midway">Midway</option>
+                <option value="Namco">Namco</option>
+                <option value="Naughty Dog">Naughty Dog</option>
+                <option value="Neversoft">Neversoft</option>
+                <option value="Rockstar Games">Rockstar Games</option>
+                <option value="Square Enix">Square Enix</option>
+                <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
+                <option value="Ubisoft">Ubisoft</option>
+              </select>
+            </div>
+            <div className="form-group">
               <label>Platform: </label>
               <br/>
               <label htmlFor="platform" className="checkbox-inline">
@@ -193,36 +235,15 @@ class NewGame extends React.Component {
                 onChange={this.imageUrlChange}
               />
             </div>
-            {/* <div className="form-group form-inline">
+            <div className="form-group form-inline">
               <label htmlFor="datetime">Release Date: </label>
-              <input type="date" id="datetime" placeholder="MM/DD/YYYY"/>
+              <input
+                type="date"
+                id="datetime"
+                placeholder="MM/DD/YYYY"
+                onChange={ (e) => this.dateChange(e) }
+              />
             </div>
-            <div>
-              <label htmlFor="developer">Development Team: </label>
-              <select id="developer" onChange={this.changeDev}>
-                <option value="Bethesda Game Studios">Bethesda Game Studios</option>
-                <option value="BioWare">BioWare</option>
-                <option value="Blizzard Entertainment">Blizzard Entertainment</option>
-                <option value="Bungie">Bungie</option>
-                <option value="EA">EA</option>
-                <option value="Epic Games">Epic Games</option>
-                <option value="Game Freak">Game Freak</option>
-                <option value="Harmonix Music Systems">Harmonix Music Systems</option>
-                <option value="Id Software">Id Software</option>
-                <option value="Infinity Ward">Infinity Ward</option>
-                <option value="Insomniac Games">Insomniac Games</option>
-                <option value="Konami">Konami</option>
-                <option value="LucasArts">LucasArts</option>
-                <option value="Midway">Midway</option>
-                <option value="Namco">Namco</option>
-                <option value="Naughty Dog">Naughty Dog</option>
-                <option value="Neversoft">Neversoft</option>
-                <option value="Rockstar Games">Rockstar Games</option>
-                <option value="Square Enix">Square Enix</option>
-                <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
-                <option value="Ubisoft">Ubisoft</option>
-              </select>
-            </div> */}
             <button
               type="submit"
               className="btn btn-primary"
