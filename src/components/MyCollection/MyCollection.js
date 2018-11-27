@@ -44,9 +44,13 @@ class MyCollection extends React.Component {
     //   console.log('yes games')
     // }
     const collectionComponents = this.state.collection.map((userCollection) => {
-      const game = games.find(x => x.id === userCollection.gameId);
-      if (game) {
-        // console.log(game);
+
+      const game = games.find((x) => {
+        x.id === userCollection.gameId
+      });
+
+      if (game !== undefined) {
+
         return (
           <SingleGame
             game={game}
@@ -57,11 +61,12 @@ class MyCollection extends React.Component {
         );
       } else {
         return (
-          // <div key="none">No Games Yet!</div>
-          console.error('no games')
+          // console.error('no games')
+          <div key="none" className="error">No Games Yet!</div>
         );
       }
     })
+
     return (
       <div className="col-xs-12">
         <h1 className="MyCollection">My Collection</h1>
