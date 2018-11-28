@@ -64,9 +64,10 @@ class MyCollection extends React.Component {
     return (
       <div className="col-xs-12">
         <h1 className="MyCollection">My Collection</h1>
-        <ul>
-          {collectionComponents}
-        </ul>
+        {collectionComponents === 'No games yet!'
+          ? <p>{collectionComponents}</p>
+          : <ul>{collectionComponents}</ul>
+        }
       </div>
     );
   }
