@@ -47,5 +47,7 @@ Use this to add a game you don't see to the website's database. Each new game sh
 - Release Date
 
 ### V2 Ideas
-- I'd like for the users to be able to search a real database of all games by using an API.
-- User will be able to rate and review games after updating their status to played.
+User should be able to:
+- search a real database of all games by using an API.
+- rate and review games after updating their status to played.
+- share their collection with friends
