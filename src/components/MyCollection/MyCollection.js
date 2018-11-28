@@ -38,34 +38,36 @@ class MyCollection extends React.Component {
 
   render () {
     const {games} = this.state;
-    // if (this.state.collection.length === 0) {
-    //   console.log('no games')
-    // } else if (this.state.collection.length > 0) {
-    //   console.log('yes games')
-    // }
-    const collectionComponents = this.state.collection.map((userCollection) => {
-      const game = games.find(x => x.id === userCollection.gameId);
-      if (game) {
-        return (
-          <SingleGame
-            game={game}
-            userCollection={userCollection}
-            removeGame={ (e) => this.removeGame(e) }
-            key={game.id}
-          />
-        );
-      } else {
-        return (
-          <div key="none">No Games Yet!</div>
-        );
-      }
-    })
+
+    let collectionComponents;
+
+    if (this.state.collection.length === 0) {
+      collectionComponents = 'No games yet!';
+    } else if (this.state.collection.length > 0) {
+      collectionComponents = this.state.collection.map((userCollection) => {
+        const game = games.find(x => x.id === userCollection.gameId);
+        if (game !== undefined) {
+          return (
+            <SingleGame
+              game={game}
+              userCollection={userCollection}
+              removeGame={ (e) => this.removeGame(e) }
+              key={game.id}
+            />
+          );
+        } else {
+          return null;
+        }
+      })
+    }
+
     return (
       <div className="col-xs-12">
         <h1 className="MyCollection">My Collection</h1>
-        <ul>
-          {collectionComponents}
-        </ul>
+        {collectionComponents === 'No games yet!'
+          ? <p>{collectionComponents}</p>
+          : <ul>{collectionComponents}</ul>
+        }
       </div>
     );
   }
