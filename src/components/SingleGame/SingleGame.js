@@ -1,7 +1,6 @@
 import React from 'react';
-
 import collectionRequests from '../../firebaseRequests/collection';
-
+import Rating from 'react-rating';
 import './SingleGame.css';
 
 class SingleGame extends React.Component {
@@ -10,15 +9,27 @@ class SingleGame extends React.Component {
       gamesId: '',
       status: '',
       uid: '',
+      rating: 0,
     }
   }
 
-  updateToPlayed = (userGameId) => {
+  changeRating = (x) => {
+    const tempGame = {...this.state.userGame};
+    tempGame.rating = x;
+    this.setState({userGame: tempGame});
+    this.updateGame(tempGame);
+  }
+
+  updateToPlayed = () => {
     const tempGame = {...this.state.userGame};
     tempGame.status = 'played';
     this.setState({userGame: tempGame});
+    this.updateGame(tempGame);
+  }
+
+  updateGame = (tempGame) => {
     collectionRequests
-      .putRequest( userGameId, tempGame )
+      .putRequest( this.state.userGame.id, tempGame )
       .then(() => {
         collectionRequests.getRequest();
       })
@@ -59,6 +70,13 @@ class SingleGame extends React.Component {
         </span>
         <h3 className="all">{game.title}</h3>
         <img src={game.poster_path} alt={game.title} className="poster" />
+        <br />
+        <Rating
+          emptySymbol="glyphicon glyphicon-heart-empty"
+          fullSymbol="glyphicon glyphicon-heart"
+          initialRating={this.state.userGame.rating}
+          onChange={this.changeRating}
+        />
         <p><strong>Developer:</strong> {game.developer}</p>
         <p><strong>Initial Release:</strong> {game.initial_release}</p>
         <p className="all">{game.description}</p>
