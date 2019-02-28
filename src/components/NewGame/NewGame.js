@@ -186,6 +186,7 @@ class NewGame extends React.Component {
             <div className="form-group">
               <label>Platform: </label>
               <br/>
+
               <label htmlFor="platform" className="checkbox-inline">
                 <input
                   type="checkbox"
@@ -202,7 +203,7 @@ class NewGame extends React.Component {
                   value="ps4"
                   onChange= { (e) => this.platformChange(e, 'ps4') }
                 />
-                PS4
+                PlayStation 4
               </label>
               <label htmlFor="platform" className="checkbox-inline">
                 <input
@@ -213,7 +214,137 @@ class NewGame extends React.Component {
                 />
                 Nintendo Switch
               </label>
+
+              <br/>
+
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="xbox360"
+                  value="xbox360"
+                  onChange= { (e) => this.platformChange(e, 'xbox360') }
+                />
+                Xbox 360
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="ps3"
+                  value="ps3"
+                  onChange= { (e) => this.platformChange(e, 'ps3') }
+                />
+                PlayStation 3
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="wii"
+                  value="wii"
+                  onChange= { (e) => this.platformChange(e, 'wii') }
+                />
+                Nintendo Wii
+              </label>
+
+              <br/>
+
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="xbox"
+                  value="xbox"
+                  onChange= { (e) => this.platformChange(e, 'xbox') }
+                />
+                Xbox
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="ps2"
+                  value="ps2"
+                  onChange= { (e) => this.platformChange(e, 'ps2') }
+                />
+                PlayStation 2
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="gamecube"
+                  value="gamecube"
+                  onChange= { (e) => this.platformChange(e, 'gamecube') }
+                />
+                Nintendo Gamecube
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="dreamcast"
+                  value="dreamcast"
+                  onChange= { (e) => this.platformChange(e, 'dreamcast') }
+                />
+                Sega Dreamcast
+              </label>
+
+              <br/>
+
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="playstation"
+                  value="playstation"
+                  onChange= { (e) => this.platformChange(e, 'playstation') }
+                />
+                PlayStation
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="n64"
+                  value="n64"
+                  onChange= { (e) => this.platformChange(e, 'n64') }
+                />
+                Nintendo 64
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="saturn"
+                  value="saturn"
+                  onChange= { (e) => this.platformChange(e, 'saturn') }
+                />
+                Sega Saturn
+              </label>
+
+              <br/>
+
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="nes"
+                  value="nes"
+                  onChange= { (e) => this.platformChange(e, 'nes') }
+                />
+                Nintendo Entertainment System
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="snes"
+                  value="snes"
+                  onChange= { (e) => this.platformChange(e, 'snes') }
+                />
+                SNES
+              </label>
+              <label htmlFor="platform" className="checkbox-inline">
+                <input
+                  type="checkbox"
+                  id="genesis"
+                  value="genesis"
+                  onChange= { (e) => this.platformChange(e, 'genesis') }
+                />
+                Sega Genesis
+              </label>
             </div>
+
             <div>
               <label htmlFor="description">Description: </label>
               <textarea
