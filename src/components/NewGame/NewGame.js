@@ -280,17 +280,27 @@ class NewGame extends React.Component {
               <select id="developer" onChange={ (e) => this.devChange(e) }>
                 <option value="--select one--">--select one--</option>
                 <option value="2K Games">2K Games</option>
+                <option value="Acclaim Entertainment">Acclaim Entertainment</option>
+                <option value="Activision">Activision</option>
+                <option value="Amazing Studio">Amazing Studio</option>
                 <option value="Bethesda Game Studios">Bethesda Game Studios</option>
                 <option value="BioWare">BioWare</option>
                 <option value="Blizzard Entertainment">Blizzard Entertainment</option>
                 <option value="Bungie">Bungie</option>
+                <option value="Crystal Dynamics">Crystal Dynamics</option>
+                <option value="Data Design Interactive">Data Design Interactive</option>
+                <option value="Deibus Studios">Deibus Studios</option>
                 <option value="Disney Interactive Studios">Disney Interactive Studios</option>
                 <option value="EA">EA</option>
+                <option value="Empire Interactive">Empire Interactive</option>
                 <option value="Epic Games">Epic Games</option>
                 <option value="Game Freak">Game Freak</option>
+                <option value="GT Interactive Software">GT Interactive Software</option>
                 <option value="Harmonix Music Systems">Harmonix Music Systems</option>
                 <option value="Id Software">Id Software</option>
+                <option value="Idol Minds">Idol Minds</option>
                 <option value="Infinity Ward">Infinity Ward</option>
+                <option value="Infogrames">Infogrames</option>
                 <option value="Insomniac Games">Insomniac Games</option>
                 <option value="Konami">Konami</option>
                 <option value="LucasArts">LucasArts</option>
@@ -300,6 +310,7 @@ class NewGame extends React.Component {
                 <option value="Neversoft">Neversoft</option>
                 <option value="Rockstar Games">Rockstar Games</option>
                 <option value="Square Enix">Square Enix</option>
+                <option value="Squaresoft">Squaresoft</option>
                 <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
                 <option value="Take-Two Interactive">Take-Two Interactive</option>
                 <option value="Ubisoft">Ubisoft</option>
