@@ -1,11 +1,6 @@
 import React from 'react';
-// import Game from '../Game/Game';
-// import Collection from '../Collection/Collection';
-// import Platforms from '../Platforms/Platforms';
-
 import gameRequests from '../../firebaseRequests/games';
 import platformRequests from '../../firebaseRequests/platforms';
-// import userGameRequests from '../../firebaseRequests/collection';
 import './NewGame.css';
 
 class NewGame extends React.Component {
@@ -245,6 +240,9 @@ class NewGame extends React.Component {
               }
             })
           });
+      })
+      .then(() => {
+
       })
       .catch((err) => {
         console.error('There was a problem with posting the game -> ', err);
