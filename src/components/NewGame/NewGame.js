@@ -306,8 +306,11 @@ class NewGame extends React.Component {
                 <option value="Empire Interactive">Empire Interactive</option>
                 <option value="Epic Games">Epic Games</option>
                 <option value="Game Freak">Game Freak</option>
+                <option value="Ganbarion">Ganbarion</option>
                 <option value="GT Interactive Software">GT Interactive Software</option>
+                <option value="HAL Laboratory, Inc.">HAL Laboratory</option>
                 <option value="Harmonix Music Systems">Harmonix Music Systems</option>
+                <option value="High Voltage Software">High Voltage Software</option>
                 <option value="Id Software">Id Software</option>
                 <option value="Idol Minds">Idol Minds</option>
                 <option value="Infinity Ward">Infinity Ward</option>
@@ -315,16 +318,23 @@ class NewGame extends React.Component {
                 <option value="Insomniac Games">Insomniac Games</option>
                 <option value="Konami">Konami</option>
                 <option value="LucasArts">LucasArts</option>
+                <option value="Mad Catz">Mad Catz</option>
                 <option value="Midway">Midway</option>
                 <option value="Namco">Namco</option>
                 <option value="Naughty Dog">Naughty Dog</option>
                 <option value="Neversoft">Neversoft</option>
+                <option value="Nintendo">Nintendo</option>
                 <option value="Rockstar Games">Rockstar Games</option>
+                <option value="SEGA">SEGA</option>
+                <option value="Sierra">Sierra</option>
+                <option value="Silicon Knights">Silicon Knights</option>
                 <option value="Square Enix">Square Enix</option>
                 <option value="Squaresoft">Squaresoft</option>
                 <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
                 <option value="Take-Two Interactive">Take-Two Interactive</option>
+                <option value="Treasure">Treasure</option>
                 <option value="Ubisoft">Ubisoft</option>
+                <option value="XSEED Games">XSEED Games</option>
               </select>
             </div>
 
