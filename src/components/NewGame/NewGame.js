@@ -242,7 +242,7 @@ class NewGame extends React.Component {
           });
       })
       .then(() => {
-
+        alert('Game was successfully submitted to the database!')
       })
       .catch((err) => {
         console.error('There was a problem with posting the game -> ', err);
@@ -299,6 +299,7 @@ class NewGame extends React.Component {
                 <option value="Blizzard Entertainment">Blizzard Entertainment</option>
                 <option value="Bungie">Bungie</option>
                 <option value="Crystal Dynamics">Crystal Dynamics</option>
+                <option value="Criterion Software">Criterion Software</option>
                 <option value="Data Design Interactive">Data Design Interactive</option>
                 <option value="Deibus Studios">Deibus Studios</option>
                 <option value="Disney Interactive Studios">Disney Interactive Studios</option>
